@@ -53,12 +53,18 @@ return inquirer
       type: 'input',
       name: 'about',
       message: 'Provide some information about yourself:'
-    }
-  ])
-  .then(answers => {
-    // Use user feedback for... whatever!!
-    console.log(answers);
-  })
+    },
+    {
+  type: 'confirm',
+  name: 'confirmAbout',
+  message: 'Would you like to enter some information about yourself for an "About" section?',
+  default: true
+},
+   ])
+  // .then(answers => {
+  //   // Use user feedback for... whatever!!
+  //   console.log(answers);
+  // })
   // .catch(error => {
   //   if(error.isTtyError) {
   //     // Prompt couldn't be rendered in the current environment
@@ -89,7 +95,7 @@ return inquirer
         name: 'description',
         message: 'Provide a description of the project (Required)',
         validate: descriptionInput => {
-          if (descripdtionInput) {
+          if (descriptionInput) {
             return true;
           } else {
             console.log('Please provide a description of the project');
@@ -124,11 +130,22 @@ return inquirer
       },
       {
         type: 'confirm',
-        name: 'confirmAddProject',
-        message: 'Would you like to enter another project?',
-        default: false
+        name: 'confirmAbout',
+        message: 'Would you like to enter some information about yourself for an "About" section?',
+        default: true
+      },
+      {
+        type: 'input',
+        name: 'about',
+        message: 'Provide some information about yourself:',
+        when: ({ confirmAbout }) => {
+          if (confirmAbout) {
+            return true;
+          } else {
+            return false;
+          }
+        }
       }
-     
     ])
     .then(projectData => {
       portfolioData.projects.push(projectData);
