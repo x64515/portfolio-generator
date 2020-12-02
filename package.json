@@ -1,23 +1,19 @@
 {
-  "name": "portfolio-generator",
+  "name": "project",
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
-  "dependencies": {
-    "inquirer": "^7.3.3"
+  "directories": {
+    "lib": "lib"
   },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node ./test/sample.js",
+    "start": "node app.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/x64515/portfolio-generator.git"
-  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/x64515/portfolio-generator/issues"
-  },
-  "homepage": "https://github.com/x64515/portfolio-generator#readme"
+  "dependencies": {
+    "inquirer": "^7.0.3"
+  }
 }
